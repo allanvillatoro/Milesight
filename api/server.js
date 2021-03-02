@@ -134,7 +134,7 @@ db.once('open', function() {
 const lightSchema = new mongoose.Schema({
   devEUI: String,
   data : String,
-  light : Number, 
+  light : Number,
   time: Date
 });
 const Luminosidad = mongoose.model('Luminosidad', lightSchema);
@@ -190,7 +190,7 @@ app.post('/api/luminosidad', function (req, res) {
 	});
 });
 
-app.post('/api/control', function (req, res) {
+app.post('/api/controlluz', function (req, res) {
 	var message;
 	var encendido = req.body.encendido;	
 	if (encendido)

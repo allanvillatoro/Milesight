@@ -5,7 +5,12 @@ class Luminosidad extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            medicion: {}
+            medicion: {
+                devEUI: '24e124126a230185',
+                data: 'A5SCAAAA',
+                light: 100,
+                time: new Date('2021-03-02T20:33:43.459Z')
+            }
         };
         this.leerMedicionLuz = this.leerMedicionLuz.bind(this);
     }
@@ -13,8 +18,9 @@ class Luminosidad extends React.Component {
     async leerMedicionLuz(){
         try{
             const respuesta = await axios.get('/api/luminosidad/ultimo');
-            const medicion1 = respuesta.data;
-            //this.setState({ medicion: medicion1 });
+            let medicion1 = respuesta.data;
+            if (medicion1.time != undefined)
+                medicion1.time = new Date(medicion1.time);
             this.setState((state, props) => ({
                 medicion: medicion1
             }));
@@ -34,7 +40,7 @@ class Luminosidad extends React.Component {
           <div>
             Luz: {this.state.medicion.light} lux
             <br/>
-            Hora: {this.state.medicion.time}
+            Hora: {this.state.medicion.time.toLocaleTimeString()}
           </div>
         );
     }
