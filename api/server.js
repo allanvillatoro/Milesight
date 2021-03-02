@@ -144,7 +144,11 @@ app.listen(3000, function () {
 });
 
 app.get('/', function (req, res) {
-    res.send("Inicio");
+    res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+});
+
+app.get('/ControlLuminaria', function (req, res) {
+    res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
 });
 
 app.get('/api/luminosidad', function (req, res) {

@@ -36,12 +36,15 @@ class Luminosidad extends React.Component {
     }
 
     render () {
-        return (  
-          <div>
-            Luz: {this.state.medicion.light} lux
-            <br/>
-            Hora: {this.state.medicion.time.toLocaleTimeString()}
-          </div>
+        const light = this.state.medicion.light;
+        return (                
+            <div className="card-body">
+                <div className="progress">
+                    <div className="progress-bar bg-warning" role="progressbar" style={{width: (light/3000*100+ "%")}}  aria-valuenow="0" aria-valuemin="0" aria-valuemax="3000"></div>
+                </div>
+                    <h5 className="card-title">{light} lux</h5>
+                    <p className="card-text">{this.state.medicion.time.toLocaleTimeString()}</p>
+            </div>
         );
     }
 }

@@ -32,7 +32,7 @@ class ControlLuminaria extends React.Component {
     render () {
         return (  
           <div>
-              <button type="submit" class="btn btn-primary" onClick={this.cambiarEstadoLuminaria}>{this.state.encendido ? 'Apagar': 'Encender'}</button>
+              <button type="submit" style={{width:"100%"}} className={this.state.encendido ? "btn btn-warning": "btn btn-secondary"} onClick={this.cambiarEstadoLuminaria}>{this.state.encendido ? 'Apagar': 'Encender'}</button>
           </div>
         );
     }
