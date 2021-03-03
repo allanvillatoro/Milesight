@@ -152,12 +152,16 @@ app.get('/ControlLuminaria', function (req, res) {
 });
 
 app.get('/api/luminosidad', function (req, res) {
-    Luminosidad.find(function (err, mediciones) {
-        if (err)
-            res.status(500).send('Error en la base de datos');
-        else
-            res.status(200).json(mediciones);
-    });
+    Luminosidad.find()
+	.sort({time: -1})
+	.limit(100)
+	.then(mediciones => {
+			res.status(200).json(mediciones);
+	})
+	.catch(error => {
+		console.err(error);
+		res.status(500).send('Error en la base de datos');
+	});
 });
 
 app.get('/api/luminosidad/ultimo', function (req, res) {
