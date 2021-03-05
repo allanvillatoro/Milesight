@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-class Luminosidad extends React.Component {
+class MedicionesLuz extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,7 +17,7 @@ class Luminosidad extends React.Component {
 
     async leerMedicionLuz(){
         try{
-            const respuesta = await axios.get('/api/luminosidad/ultimo');
+            const respuesta = await axios.get('/api/medicionesluz/ultimo');
             let medicion1 = respuesta.data;
             if (medicion1.time != undefined)
                 medicion1.time = new Date(medicion1.time);
@@ -48,4 +48,4 @@ class Luminosidad extends React.Component {
         );
     }
 }
-export default Luminosidad;
+export default MedicionesLuz;

@@ -1,16 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 
-class ControlLuminaria extends React.Component {
+class ControlLuz extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             encendido: false
         };
-        this.cambiarEstadoLuminaria = this.cambiarEstadoLuminaria.bind(this);
+        this.cambiarEstadoLuz = this.cambiarEstadoLuz.bind(this);
     }
 
-    async cambiarEstadoLuminaria(){
+    async cambiarEstadoLuz(){
         let encendido1 = !this.state.encendido;
         let objeto = {encendido: encendido1};
         try{
@@ -32,9 +32,9 @@ class ControlLuminaria extends React.Component {
     render () {
         return (  
           <div>
-              <button type="submit" style={{width:"100%"}} className={this.state.encendido ? "btn btn-warning": "btn btn-secondary"} onClick={this.cambiarEstadoLuminaria}>{this.state.encendido ? 'Apagar': 'Encender'}</button>
+              <button type="submit" style={{width:"100%"}} className={this.state.encendido ? "btn btn-warning": "btn btn-secondary"} onClick={this.cambiarEstadoLuz}>{this.state.encendido ? 'Apagar': 'Encender'}</button>
           </div>
         );
     }
 }
-export default ControlLuminaria;
+export default ControlLuz;

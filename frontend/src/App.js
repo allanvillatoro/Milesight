@@ -1,11 +1,10 @@
-import Luminosidad from './Luminosidad/Luminosidad';
-import ControlLuminaria from './Luminosidad/ControlLuminaria';
+import MedicionesLuz from './Luz/MedicionesLuz';
+import ControlLuz from './Luz/ControlLuz';
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -18,16 +17,15 @@ function App() {
                 <img src="foco.jpg" className="img-fluid" alt="Responsive image"/>            
         <Switch>
           <Route exact path="/">
-              <Luminosidad/>
+              <MedicionesLuz/>
           </Route>
-          <Route path="/ControlLuminaria">
-          <ControlLuminaria/>
+          <Route path="/ControlLuz">
+          <ControlLuz/>
           </Route>
         </Switch>
         </div>
       </div>
-    </Router>
-      
+    </Router>      
   );
 }
 
