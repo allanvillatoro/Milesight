@@ -1,8 +1,8 @@
 #Milesight Sensor App
 
 Esta aplicación requiere de estos equipos:
-1 - Sensor de Luz Milesight IoT
-2 - Remote IO de Milesight IoT
+1. Sensor de Luz Milesight IoT
+2. Remote IO de Milesight IoT
 
 Para completar las dependencias:
 ```bash
